@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import React, { useState } from "react";
@@ -14,7 +12,7 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
@@ -56,7 +54,9 @@ export default function LoginPage() {
             label="Email address"
             placeholder="name@company.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.target.value)
+            }
             error={error}
             disabled={isLoading}
           />
@@ -71,13 +71,19 @@ export default function LoginPage() {
             <div className="w-full border-t border-slate-200" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-white px-2 text-slate-400">Or continue with</span>
+            <span className="bg-white px-2 text-slate-400">
+              Or continue with
+            </span>
           </div>
         </div>
 
         {/* Mock OAuth Actions */}
         <button
-          onClick={() => loginWithEmail("google-user@example.com").then(() => router.push("/"))}
+          onClick={() =>
+            loginWithEmail("google-user@example.com").then(() =>
+              router.push("/"),
+            )
+          }
           className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-slate-200 rounded-md
             text-sm font-medium text-slate-700 bg-white hover:bg-slate-50 transition-colors focus-ring"
         >
