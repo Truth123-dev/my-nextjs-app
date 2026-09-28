@@ -1,11 +1,8 @@
-
-
 import "./globals.css";
-import { AuthProvider } from "@/components/auth-provider";
 
 export const metadata = {
-  title: "Workspace Auth",
-  description: "Next.js Linear/Jira style auth mock.",
+  title: "Workspace",
+  description: "A secure Supabase-powered Next.js workspace.",
 };
 
 export default function RootLayout({
@@ -15,8 +12,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <AuthProvider>{children}</AuthProvider>
+      <body className="bg-slate-50 text-slate-900 antialiased">
+        {children}
       </body>
     </html>
   );

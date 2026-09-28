@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Supabase + Next.js setup
+
+This project uses cookie-backed Supabase Auth with the Next.js App Router.
+
+1. Create a Supabase project and open its **Connect** dialog.
+2. Copy `.env.example` to `.env.local`, then fill in the Project URL and publishable key.
+3. Add `http://localhost:3000/auth/callback` to Supabase Auth Redirect URLs.
+4. Run `npm.cmd run dev`, then use the email form to request a magic link.
+
+Before deploying, configure the same environment variables in the hosting provider and run `npm.cmd run lint`, `npm.cmd run typecheck`, and `npm.cmd run build`.
