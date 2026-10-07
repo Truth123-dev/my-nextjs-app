@@ -1,3 +1,5 @@
+# Ledger Workspace
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,13 +36,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# Supabase + Next.js setup
+
+## Supabase + Next.js setup
 
 This project uses cookie-backed Supabase Auth with the Next.js App Router.
 
 1. Create a Supabase project and open its **Connect** dialog.
 2. Copy `.env.example` to `.env.local`, then fill in the Project URL and publishable key.
-3. Add `http://localhost:3000/auth/callback` to Supabase Auth Redirect URLs.
-4. Run `npm.cmd run dev`, then use the email form to request a magic link.
+3. In the Supabase SQL Editor, run the migration files in `supabase/migrations/` in filename order. If you already ran the first migration, run the newer migration files only.
+4. Add `http://localhost:3000/auth/callback` to Supabase Auth Redirect URLs.
+5. Run `npm.cmd run dev`, open `/login`, and request a magic link. After sign-in, create an organization from `/dashboard`.
+
+New organizations receive an empty USD account. Transfers are ledger entries only; this project is not connected to a bank or payment network. Fund test accounts deliberately in a non-production Supabase project before testing transfers.
 
 Before deploying, configure the same environment variables in the hosting provider and run `npm.cmd run lint`, `npm.cmd run typecheck`, and `npm.cmd run build`.
